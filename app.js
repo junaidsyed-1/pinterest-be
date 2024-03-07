@@ -3,14 +3,28 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const userModel = require('./models/userModel');
 const postRouter = require('./routes/post');
 const connectToMongoDb = require('./config/database');
 
 var app = express();
-connectToMongoDb()
+connectToMongoDb();
+
+app.use(session({
+  secret: 'secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(userModel.serializeUser());
+passport.deserializeUser(userModel.deserializeUser());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
