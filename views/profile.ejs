@@ -21,22 +21,33 @@
             alt="Profile Picture"
           />
         </div>
-        <h2 class="name">Username</h2>
-        <h3 class="username">@username</h3>
-        <p class="tagline">Keep going.</p>
-        <a href="#" class="buttons">Visit Profile</a>
+        <h2 class="name"><%= user.fullname%></h2>
+        <h3 class="username">@<%= user.username%></h3>
+        <p class="tagline">
+          Lorem ipsum dolor sit amet, consectetur adipisicing.
+        </p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <input type="text" placeholder="Caption" name="filecaption" />
+          <input type="file" name="file" />
+          <button class="buttons" type="submit">Upload</button>
+        </form>
+        <a href="/logout" class="buttons">Log Out</a>
       </div>
     </div>
     <div class="container">
-      <div class="card" style="width: 18rem">
-        <img
-          src="https://images.unsplash.com/photo-1694164108456-e21c7e575a73?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUzNDI3ODV8&ixlib=rb-4.0.3&q=85"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+      <div class="cards d-flex flex-wrap align-items-start">
+        <% user.posts.forEach(function(post){ %>
+        <div class="card mx-2" style="width: 18rem">
+          <img
+            src="/images/uploads/<%=post.image %>"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title"><%= post.postText%></h5>
+          </div>
         </div>
+        <% }) %>
       </div>
     </div>
 

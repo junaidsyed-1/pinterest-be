@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,10 +16,11 @@ const connectToMongoDb = require('./config/database');
 var app = express();
 connectToMongoDb();
 
+app.use(flash());
 app.use(session({
   secret: 'secret-key',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
 }));
 app.use(passport.initialize());
 app.use(passport.session());

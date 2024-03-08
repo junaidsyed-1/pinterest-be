@@ -6,6 +6,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()))
 
+// Create a new user
 router.post('/register', function (req, res) {
   const { fullname, username, email, password } = req.body;
   const userData = new userModel({ fullname, username, email });
@@ -17,17 +18,14 @@ router.post('/register', function (req, res) {
     });
 });
 
+// Log in a user
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile',
-  failureRedirect: '/login'
+  failureRedirect: '/login',
+  failureFlash: true,
 }));
 
-router.get('/logout', function (req, res, next) {
-  req.logout(function (err) {
-    if (err) { return next(err); }
-    res.redirect('/login');
-  });
-});
+
 
 
 module.exports = router;
