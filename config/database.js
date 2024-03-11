@@ -6,7 +6,7 @@ async function connectToMongoDb() {
         console.log('Connected to MongoDB');
     } catch (error) {
         console.log(error);
-    }
+    };
 };
 
 module.exports = connectToMongoDb;
