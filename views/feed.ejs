@@ -1,20 +1,4 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=0"
-    />
-    <title>Pinteresting | Gallery Layout</title>
-  </head>
-  <!-- A Simple non functional Pinterest inspired page layout created using only HTML and CSS.
-       Created by M. Hassler - Hassified -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<% include ./partials/header.ejs %>
 
   <link rel="stylesheet" href="/stylesheets/feed.css" />
 
@@ -173,6 +157,12 @@
       </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    
     <script>
       $(".grid").imagesLoaded(function () {
         $(".grid").masonry({
@@ -180,5 +170,8 @@
         });
       });
     </script>
-  </body>
-</html>
+
+    
+
+<% include ./partials/footer.ejs %>
+
