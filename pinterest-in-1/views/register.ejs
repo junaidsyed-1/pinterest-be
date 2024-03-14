@@ -1,16 +1,20 @@
 <% include ./partials/header.ejs %>
 
-<div class="w-full h-screen bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1604076947037-d909e2f10fca?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] flex items-center justify-center">
+<div class="w-full h-screen bg-zinc-300 flex items-center justify-center">
   <div class="w-96  bg-white p-10 px-10 rounded-3xl shadow-md">
     <h1 class="text-4xl leading-none tracking-tighter capitalize text-center font-semibold">Welcome to Pinterest</h1>
-    <form action="/users/login" method="post">
+    <form action="/users/register" method="post">
+      <input class="block w-full px-3 py-2 border mt-2 rounded-md" type="email" name="email" placeholder="Email">
+
       <input class="block w-full px-3 py-2 border mt-2 rounded-md" type="text" name="username" placeholder="Username">
+
       <input class="block w-full px-3 py-2 border mt-2 rounded-md" type="password" name="password" placeholder="Password">
-      <input class="block w-full px-3 py-2 border bg-red-600 text-white rounded-full mt-2 cursor-pointer" type="submit" value="Log in">
-      <a class="mt-2 font-semibold text-zinc-500 inline-block" href="/forgot">Forgot Password?</a>
+
+      <input class="block w-full px-3 py-2 border bg-red-600 text-white rounded-full mt-2 cursor-pointer" type="submit" value="Sign Up">
+      
       <p class="text-sm text-zinc-400 mt-6 text-center w-full mx-auto">By continuing, you agree to Pinterest's Terms of Service and acknowledge you've read our Privacy Policy. Notice at collection.</p>
     </form>
-    <a class="inline-block mt-5 text-sm font-semibold text-zinc-700 text-center w-full" href="/register">Don't have an account? Sign up</a>
+    <a class="inline-block mt-5 text-sm font-semibold text-zinc-700 text-center w-full" href="/">Already on Pinterest? Login</a>
   </div>
 </div>
 
