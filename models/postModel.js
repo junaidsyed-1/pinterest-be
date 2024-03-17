@@ -14,7 +14,7 @@ const postSchema = new mongoose.Schema({
     },
     like: {
         type: Array,
-        default: []
+        default: [],
     }
 
 }, { timestamp: true });
