@@ -51,7 +51,6 @@ router.post('/upload', isLoggedIn, upload.single('file'), async function (req, r
   await user.save();
 
   res.redirect('/profile');
-})
-
+});
 
 module.exports = router;
