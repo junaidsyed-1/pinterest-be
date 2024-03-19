@@ -32,6 +32,15 @@ router.get('/add', isLoggedIn, async function (req, res) {
   res.render('add', { user, nav: true })
 });
 
+// Feed
+router.get('/feed', isLoggedIn, async function (req, res) {
+  const user = await userModel.findOne({ username: req.session.passport.user });
+
+  const posts = await postModel.find().populate('user');
+
+  res.render('feed', { user, posts, nav: true })
+});
+
 router.get('/show/posts', isLoggedIn, async function (req, res) {
   const user = await userModel.findOne({ username: req.session.passport.user }).populate('posts')
   res.render('show', { user, nav: true })

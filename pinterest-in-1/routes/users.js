@@ -7,8 +7,8 @@ const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
 
 router.post('/register', async function (req, res) {
-  const { username, email, password } = req.body;
-  const userData = new userModel({ username, email });
+  const { username, email, password, name } = req.body;
+  const userData = new userModel({ username, email, name });
 
   userModel.register(userData, password)
     .then(function () {
